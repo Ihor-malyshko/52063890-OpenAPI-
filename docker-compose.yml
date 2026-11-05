@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: announcements-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: announcements
+    ports:
+      - "5432:5432"
+    volumes:
+      - announcements-data:/var/lib/postgresql/data
+
+volumes:
+  announcements-data:
